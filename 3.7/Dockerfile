@@ -35,5 +35,8 @@ ENV PYTHONPATH=/home/ayorgo/code
 # Poetry will use the above virtual environment without creating a new one
 RUN poetry install --no-root
 
+# Enable vim bindings in ipython
+RUN if pip show ipython -q; then ipython profile create && echo "c.TerminalInteractiveShell.editing_mode = 'vi'" >> /home/ayorgo/.ipython/profile_default/ipython_config.py; fi
+
 # Keep the terminal colored
 ENV TERM xterm-256color
