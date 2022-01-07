@@ -38,5 +38,8 @@ RUN poetry install --no-root
 # Enable vim bindings in ipython
 RUN if pip show ipython -q; then ipython profile create && echo "c.TerminalInteractiveShell.editing_mode = 'vi'" >> /home/ayorgo/.ipython/profile_default/ipython_config.py; fi
 
+# Enhance vim bindings in ipython
+COPY ipython_vim_bindings.py /home/ayorgo/.ipython/profile_default/startup/ipython_vim_bindings.py
+
 # Keep the terminal colored
 ENV TERM xterm-256color
