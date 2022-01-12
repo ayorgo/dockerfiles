@@ -3,7 +3,8 @@ FROM python:3.7
 RUN apt-get update && apt-get install -y \
 vim \
 zip \
-xclip
+xclip \
+graphviz
 
 # Install aws client v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" && \
