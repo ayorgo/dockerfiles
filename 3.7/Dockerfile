@@ -1,16 +1,23 @@
 FROM python:3.7
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get -qq install -y \
 vim \
 zip \
 xclip \
-graphviz
+graphviz \
+software-properties-common \
+npm
 
 # Install aws client v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" && \
 unzip -qqq awscliv2.zip && ./aws/install
 ENV PATH=~/v2/current/bin/aws:$PATH
 ENV AWS_DEFAULT_REGION=eu-west-1
+
+# Install nodejs
+RUN npm install --quiet npm@8.3.0 -g && \
+npm install --quiet n -g && \
+n 16.13.2
 
 RUN useradd -ms /bin/bash ayorgo
 USER ayorgo
