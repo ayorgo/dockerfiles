@@ -1,16 +1,16 @@
 FROM python:3.10
 
 RUN apt-get update && apt-get -qq install -y \
-vim \
-zip \
-xclip \
-graphviz \
-software-properties-common \
-npm
+    vim \
+    zip \
+    xclip \
+    graphviz \
+    software-properties-common \
+    npm
 
 # Install aws client v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" && \
-unzip -qqq awscliv2.zip && ./aws/install
+    unzip -qqq awscliv2.zip && ./aws/install
 ENV PATH=~/v2/current/bin/aws:$PATH
 ENV AWS_DEFAULT_REGION=eu-west-1
 
@@ -24,6 +24,13 @@ USER ayorgo
 
 RUN mkdir /home/ayorgo/code
 WORKDIR /home/ayorgo/code
+
+# Install kubectl
+RUN curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl && \
+    chmod +x ./kubectl && \
+    mkdir -p /home/ayorgo/bin && \
+    cp ./kubectl /home/ayorgo/bin/kubectl
+ENV PATH=$PATH:/home/ayorgo/bin
 
 # Set up python virtual environment
 RUN python -m venv /home/ayorgo/virtualenvs/venvironment
@@ -44,10 +51,8 @@ ENV PYTHONPATH=/home/ayorgo/code
 RUN poetry install --no-root
 
 # Enable vim bindings in ipython
-RUN if pip show ipython -q; then ipython profile create && echo "c.TerminalInteractiveShell.editing_mode = 'vi'" >> /home/ayorgo/.ipython/profile_default/ipython_config.py; fi
-
-# Enhance vim bindings in ipython
-COPY ipython_vim_bindings.py /home/ayorgo/.ipython/profile_default/startup/ipython_vim_bindings.py
+COPY --chown=ayorgo:ayorgo ipython_config.py /home/ayorgo/.ipython/profile_default/ipython_config.py
+COPY --chown=ayorgo:ayorgo ipython_vim_bindings.py /home/ayorgo/.ipython/profile_default/startup/ipython_vim_bindings.py
 
 # Keep the terminal colored
 ENV TERM xterm-256color
