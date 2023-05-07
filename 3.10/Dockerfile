@@ -6,7 +6,10 @@ RUN apt-get update && apt-get -qq install -y \
     xclip \
     graphviz \
     software-properties-common \
-    npm
+    npm \
+    sagemath \
+    r-base \
+    r-base-dev
 
 # Install aws client v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" && \
@@ -20,6 +23,10 @@ npm install --quiet n -g && \
 n 16.13.2
 
 RUN useradd -ms /bin/bash ayorgo
+
+# Install R packages
+RUN chown -R ayorgo:ayorgo /usr/local/lib/R/site-library
+
 USER ayorgo
 
 RUN mkdir /home/ayorgo/code
@@ -56,3 +63,7 @@ COPY --chown=ayorgo:ayorgo ipython_vim_bindings.py /home/ayorgo/.ipython/profile
 
 # Keep the terminal colored
 ENV TERM xterm-256color
+
+# Install R packages
+RUN R -e "install.packages('IRkernel')"
+RUN R -e "IRkernel::installspec()"
