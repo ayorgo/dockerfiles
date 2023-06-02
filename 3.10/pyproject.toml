@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python"
+name = "python-docker"
 version = "0.2.0"
 description = "General use python 3.10 container"
 authors = ["ayorgo"]

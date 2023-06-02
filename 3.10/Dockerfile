@@ -45,7 +45,7 @@ ENV VIRTUAL_ENV /home/ayorgo/virtualenvs/venvironment
 ENV PATH /home/ayorgo/virtualenvs/venvironment/bin:$PATH
 
 RUN python -m pip install pip==23.1.2
-RUN pip install poetry==1.4.2
+RUN pip install poetry==1.5.1
 
 COPY --chown=ayorgo:ayorgo pyproject.toml /home/ayorgo/code/pyproject.toml
 COPY --chown=ayorgo:ayorgo poetry.lock /home/ayorgo/code/poetry.lock
