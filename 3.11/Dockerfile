@@ -56,13 +56,13 @@ ENV PYTHONPATH=/home/ayorgo/code
 # Poetry will use the above virtual environment without creating a new one
 RUN poetry install --no-root
 
+# Install R packages
+RUN R -e "install.packages('IRkernel')"
+RUN R -e "IRkernel::installspec()"
+
 # Enable vim bindings in ipython
 COPY --chown=ayorgo:ayorgo ipython_config.py /home/ayorgo/.ipython/profile_default/ipython_config.py
 COPY --chown=ayorgo:ayorgo ipython_vim_bindings.py /home/ayorgo/.ipython/profile_default/startup/ipython_vim_bindings.py
 
 # Keep the terminal colored
 ENV TERM xterm-256color
-
-# Install R packages
-RUN R -e "install.packages('IRkernel')"
-RUN R -e "IRkernel::installspec()"
