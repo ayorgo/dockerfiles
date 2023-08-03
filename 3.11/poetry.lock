@@ -2585,6 +2585,62 @@ url = "https://download.pytorch.org/whl/cpu"
 reference = "torch-cpu"
 
 [[package]]
+name = "torchaudio"
+version = "2.0.2+cpu"
+description = "An audio package for PyTorch"
+optional = false
+python-versions = "*"
+files = [
+    {file = "torchaudio-2.0.2+cpu-cp310-cp310-linux_x86_64.whl", hash = "sha256:80eccef075f9e356f7a4ad27c57614c726906a30617424e2d86a08de179feeff"},
+    {file = "torchaudio-2.0.2+cpu-cp310-cp310-win_amd64.whl", hash = "sha256:514995f6418d193caf1a2e06c912f603959ec6d8557b48ef52a9ceb8e5d180d1"},
+    {file = "torchaudio-2.0.2+cpu-cp311-cp311-linux_x86_64.whl", hash = "sha256:eb589737c30139c946b4c4f3a73307a6286c5402b6e5273dd5cb8768d0e73b3f"},
+    {file = "torchaudio-2.0.2+cpu-cp311-cp311-win_amd64.whl", hash = "sha256:a93c8e9ff28959b2e8b9a1347b34c5f94f33f617bc96fe17011b0d8cb5fb377f"},
+    {file = "torchaudio-2.0.2+cpu-cp38-cp38-linux_x86_64.whl", hash = "sha256:5196d7ed34863deaa28434ad02a043b01cfbd0c42b58d61ca56825577aeca74e"},
+    {file = "torchaudio-2.0.2+cpu-cp38-cp38-win_amd64.whl", hash = "sha256:b29d34bb39b8e613c562d8c04bd4108be6ae20221ee043e29b81bbef95f3f5bf"},
+    {file = "torchaudio-2.0.2+cpu-cp39-cp39-linux_x86_64.whl", hash = "sha256:30fc6926b51892cda933e98616fcdbc1f53084680210809cbc03c301d585ed9c"},
+    {file = "torchaudio-2.0.2+cpu-cp39-cp39-win_amd64.whl", hash = "sha256:aa7425184157a0356fe08deb74a517f5a0e1f27722f362a5ac3089904bf17001"},
+]
+
+[package.dependencies]
+torch = "2.0.1"
+
+[package.source]
+type = "legacy"
+url = "https://download.pytorch.org/whl/cpu"
+reference = "torch-cpu"
+
+[[package]]
+name = "torchvision"
+version = "0.15.2+cpu"
+description = "image and video datasets and models for torch deep learning"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "torchvision-0.15.2+cpu-cp310-cp310-linux_x86_64.whl", hash = "sha256:aae0be6883d2cd5a23cb544ee0928288a27df0455430ef9dd6e631c5464095f5"},
+    {file = "torchvision-0.15.2+cpu-cp310-cp310-win_amd64.whl", hash = "sha256:44d4b8976b5aaf97811ec05cb526531ac08dc5c76c2f5bc1c919b9a653cbc206"},
+    {file = "torchvision-0.15.2+cpu-cp311-cp311-linux_x86_64.whl", hash = "sha256:1633c0b7ead69d2cd3fbe8aeaa146c76a68691bd3599facfffd2da925973e044"},
+    {file = "torchvision-0.15.2+cpu-cp311-cp311-win_amd64.whl", hash = "sha256:3ec9785df54906d1631c5574ba0df3cc3adcd43286774b93fbe82c97c4714977"},
+    {file = "torchvision-0.15.2+cpu-cp38-cp38-linux_x86_64.whl", hash = "sha256:af6bc2c7b0b8b2a32745e56f057a5956caf0d6031a94eb80b283dcd475d8feb0"},
+    {file = "torchvision-0.15.2+cpu-cp38-cp38-win_amd64.whl", hash = "sha256:f61cc175f75392c7565ad1144d2e511b14002d061a2fd31a73b045259eb9100e"},
+    {file = "torchvision-0.15.2+cpu-cp39-cp39-linux_x86_64.whl", hash = "sha256:e1e3988373afa29c813b140dbb5b7a074214813fd0ef97d2538966b9bd8d92d9"},
+    {file = "torchvision-0.15.2+cpu-cp39-cp39-win_amd64.whl", hash = "sha256:b9c2745a966d5ffcad7b17807ef3acf4149f497c80f5f4571f69a1817436e56f"},
+]
+
+[package.dependencies]
+numpy = "*"
+pillow = ">=5.3.0,<8.3.dev0 || >=8.4.dev0"
+requests = "*"
+torch = "2.0.1"
+
+[package.extras]
+scipy = ["scipy"]
+
+[package.source]
+type = "legacy"
+url = "https://download.pytorch.org/whl/cpu"
+reference = "torch-cpu"
+
+[[package]]
 name = "tornado"
 version = "6.3.2"
 description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
@@ -2739,4 +2795,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.4"
-content-hash = "75310ea58e2df2a71215e806d50e9f65000d630f25e6ce394f5beb20a596ada9"
+content-hash = "056171ffd42351dd6d6e6fd8b444a3cfe0583a2fb8d7a91e5bcb77997c00aaa6"
