@@ -9,3 +9,7 @@ build_310:
 .PHONY: build_311
 build_311:
 	docker build 3.11 -t python:3.11-ayorgo
+
+.PHONY: build_311_arch
+build_311_arch:
+	docker build 3.11-arch -t python:3.11-arch-ayorgo
