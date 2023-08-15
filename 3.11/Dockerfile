@@ -64,5 +64,9 @@ RUN R -e "IRkernel::installspec()"
 COPY --chown=ayorgo:ayorgo ipython_config.py /home/ayorgo/.ipython/profile_default/ipython_config.py
 COPY --chown=ayorgo:ayorgo ipython_vim_bindings.py /home/ayorgo/.ipython/profile_default/startup/ipython_vim_bindings.py
 
+# Keep the history
+ENV IPYTHONDIR=/home/ayorgo/.ipython
+ENV HISTFILE=/home/ayorgo/.bash_history
+
 # Keep the terminal colored
 ENV TERM xterm-256color
