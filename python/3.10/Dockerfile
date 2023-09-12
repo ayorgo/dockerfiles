@@ -7,9 +7,7 @@ RUN apt-get update && apt-get -qq install -y \
     graphviz \
     software-properties-common \
     npm \
-    sagemath \
-    r-base \
-    r-base-dev
+    sagemath
 
 # Install aws client v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" && \
@@ -23,10 +21,6 @@ npm install --quiet n -g && \
 n 16.13.2
 
 RUN useradd -ms /bin/bash ayorgo
-
-# Install R packages
-RUN chown -R ayorgo:ayorgo /usr/local/lib/R/site-library
-
 USER ayorgo
 
 RUN mkdir /home/ayorgo/code
@@ -56,10 +50,6 @@ ENV PYTHONPATH=/home/ayorgo/code
 
 # Poetry will use the above virtual environment without creating a new one
 RUN poetry install --no-root
-
-# Install R packages
-RUN R -e "install.packages('IRkernel')"
-RUN R -e "IRkernel::installspec()"
 
 # Enable vim bindings in ipython
 COPY --chown=ayorgo:ayorgo ipython_config.py /home/ayorgo/.ipython/profile_default/ipython_config.py

@@ -13,3 +13,7 @@ python_311:
 .PHONY: python_311_arch
 python_311_arch:
 	docker build python/3.11-arch -t python:3.11-arch-ayorgo
+
+.PHONY: r_431
+r_431:
+	docker build r/4.3.1 -t r:4.3.1-ayorgo
