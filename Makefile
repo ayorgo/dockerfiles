@@ -6,6 +6,10 @@ python_37:
 python_310:
 	docker build python/3.10 -t python:3.10-ayorgo
 
+.PHONY: python_310_pytorch_cuda
+python_310_pytorch_cuda:
+	docker build python/3.10-pytorch-cuda -t python:3.10-pytorch-cuda-ayorgo
+
 .PHONY: python_311
 python_311:
 	docker build python/3.11 -t python:3.11-ayorgo
@@ -13,6 +17,10 @@ python_311:
 .PHONY: python_311_arch
 python_311_arch:
 	docker build python/3.11-arch -t python:3.11-arch-ayorgo
+
+.PHONY: python_311_cuda
+python_311_cuda:
+	docker build python/3.11-cuda -t python:3.11-cuda-ayorgo
 
 .PHONY: r_431
 r_431:
