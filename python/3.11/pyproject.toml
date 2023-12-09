@@ -30,6 +30,7 @@ tensorboard = "^2.14.0"
 tensorboardx = "^2.6.2.2"
 tqdm = "^4.66.1"
 ydata-profiling = "^4.5.1"
+transformers = {extras = ["torch"], version = "^4.35.2"}
 
 [[tool.poetry.source]]
 name = "torch-cpu"
