@@ -1,9 +1,9 @@
-FROM rust:1.74.1-slim-bookworm
+FROM rust:1.80.0-slim-bookworm
 
 RUN apt-get update && apt-get -qq install -y \
     vim
 
-RUN rustup component add rustfmt
+RUN rustup component add rustfmt rust-docs
 
 RUN useradd -ms /bin/bash ayorgo
 USER ayorgo

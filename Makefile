@@ -26,6 +26,6 @@ python_311_cuda:
 r_431:
 	docker build r/4.3.1 -t r:4.3.1-ayorgo
 
-.PHONY: rust_1741
-rust_1741:
-	docker build rust/1.74.1 -t rust:1.74.1-ayorgo
+.PHONY: rust_1800
+rust_1800:
+	docker build rust/1.80.0 -t rust:1.80.0-ayorgo
