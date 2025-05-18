@@ -30,6 +30,6 @@ python_312:
 r_431:
 	docker build r/4.3.1 -t r:4.3.1-ayorgo
 
-.PHONY: rust_1800
-rust_1800:
-	docker build rust/1.80.0 -t rust:1.80.0-ayorgo
+.PHONY: rust_1870
+rust_1870:
+	docker build rust/1.87.0 -t rust:1.87.0-ayorgo
