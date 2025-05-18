@@ -22,6 +22,10 @@ python_311_arch:
 python_311_cuda:
 	docker build python/3.11-cuda -t python:3.11-cuda-ayorgo
 
+.PHONY: python_312
+python_312:
+	docker build python/3.12 -t python:3.12-ayorgo
+
 .PHONY: r_431
 r_431:
 	docker build r/4.3.1 -t r:4.3.1-ayorgo
